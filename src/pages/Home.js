@@ -1,7 +1,11 @@
 import { Carousel } from 'flowbite-react';
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Service from './Service';
 
 const Home = () => {
+    const servicesData = useLoaderData();
+    // console.log(servicesData.length);
     return (
         <div>
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
@@ -21,10 +25,17 @@ const Home = () => {
                 </Carousel>
             </div>
 
+            <div className='my-6'>
+                <h1 className='mb-6 text-center font-bold text-3xl'>Top Services</h1>
+                <div className='grid grid-cols-3 gap-6'>
+                    {
+                        servicesData.map(service => <Service key={service._id} service={service}></Service>)
+                    }
+                </div>
+            </div>
+
             <div className='mt-10'>
                 <h1 className='text-center font-bold text-4xl mb-8'>Top Destination</h1>
-
-
                 <div className='grid grid-cols-3 gap-8'>
                     <div className="overflow-hidden aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
                         <div className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
