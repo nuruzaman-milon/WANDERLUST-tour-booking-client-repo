@@ -1,5 +1,6 @@
 import { Navbar } from 'flowbite-react';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -21,13 +22,21 @@ const Header = () => {
   <Navbar.Toggle />
   <Navbar.Collapse>
     <Navbar.Link
-      href="/navbars"
-      active={true}
     >
-      Home
+      <NavLink to='/' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Home</NavLink>
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      About
+    <Navbar.Link>
+      <NavLink to='/blog' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Blog</NavLink>
     </Navbar.Link>
     <Navbar.Link href="/navbars">
       Services
