@@ -21,24 +21,30 @@ const Home = () => {
                 </Carousel>
             </div>
             <div>
-                <div className='text-center my-6'>
-                    <h1 className='font-extrabold text-3xl'>
+                <div className='text-center my-10'>
+                    <h1 className='font-extrabold text-3xl mb-4'>
                         Any Queries?
                     </h1>
-                    <h2>I am available 24/7 to answer your queries.</h2>
+                    <h2 className='text-2xl'>I am available 24/7 to answer your queries.</h2>
                 </div>
-                <div className='grid grid-cols-2'>
-                    <div className='bg-[#10A5B2]'>
-                        <h1>For Sales</h1>
-                        <h2>The Brilliant reasons Emprise be your one-stop-shop!</h2>
-                        <h2>sales@emprise.tours</h2>
-                        <h2>01704443900</h2>
+                <div className='grid grid-cols-2 gap-16'>
+                    <div className='rounded-xl bg-[#10A5B2] text-white text-center py-16 hover:bg-[#028b97]'>
+                        <div className='bg-white mx-auto rounded-full w-20 h-20'>
+                            <img className='mx-auto pt-3' src="https://d33wubrfki0l68.cloudfront.net/a3a2ee57a92e0b0322f02b7f0dbda7a625479d57/5deeb/assets/svg/headset.svg" alt="" />
+                        </div>
+                        <h1 className='font-bold text-2xl my-4'>Tour Guide Booking </h1>
+                        <h2 className='font-semibold text-xl my-4'>I am with you all over in Bangladesh!</h2>
+                        <h2 className='font-semibold text-xl my-4'>wandarlust@guide.tours</h2>
+                        <h2 className='font-semibold text-xl my-4'>01704443900</h2>
                     </div>
-                    <div className='bg-black text-white'>
-                        <h1>Help & Support</h1>
-                        <h2>The Brilliant reasons Emprise be your one-stop-shop!</h2>
-                        <h2>njmilon1@gmail.com</h2>
-                        <h2>01303746940</h2>
+                    <div className='rounded-xl bg-black text-white text-center py-16 hover:bg-slate-900'>
+                        <div className='bg-white mx-auto rounded-full w-20 h-20'>
+                            <img className='mx-auto pt-5' src="https://d33wubrfki0l68.cloudfront.net/686abac3955a75eb9a78c5324676c5b64a67410e/3aca8/assets/svg/help-circle.svg" alt="" />
+                        </div>
+                        <h1 className='font-bold text-2xl my-4'>Help & Support </h1>
+                        <h2 className='font-semibold text-xl my-4'>I am available 24/7 for your support!</h2>
+                        <h2 className='font-semibold text-xl my-4'>njmilon1@gmail.com</h2>
+                        <h2 className='font-semibold text-xl my-4'>01303746940</h2>
                     </div>
                 </div>
             </div>
