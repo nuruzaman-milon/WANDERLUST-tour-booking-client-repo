@@ -1,11 +1,12 @@
-import logo from './logo.svg';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import { Button } from 'flowbite-react';
+import { router } from './Routes/Routes';
+
 
 function App() {
   return (
-    <div className="App">
-    
+    <div className="w-[92%] mx-auto">
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
