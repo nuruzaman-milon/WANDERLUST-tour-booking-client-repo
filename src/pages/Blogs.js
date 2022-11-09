@@ -3,6 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div>
+            <h1 className='text-center font-bold text-3xl my-4'>All Blogs</h1>
             <div className='bg-[#7600DC] my-4 p-6 text-white rounded-lg'>
                 <p>
                     <p className='font-bold text-2xl'>1. Difference between SQL and NoSQL?</p>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const Service = ({ service }) => {
+const ServiceCart = ({service}) => {
     const { _id, img, price, title, ratings, details } = service;
     const shortDetails = details.slice(0, 100);
     console.log(shortDetails);
@@ -33,4 +33,4 @@ const Service = ({ service }) => {
     );
 };
 
-export default Service;
+export default ServiceCart;

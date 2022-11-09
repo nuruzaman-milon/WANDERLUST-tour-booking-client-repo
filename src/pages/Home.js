@@ -1,7 +1,8 @@
-import { Carousel } from 'flowbite-react';
+import { Button, Carousel } from 'flowbite-react';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Service from './Service';
+import { FaAngleDoubleRight } from 'react-icons/fa';
 
 const Home = () => {
     const servicesData = useLoaderData();
@@ -31,6 +32,12 @@ const Home = () => {
                     {
                         servicesData.map(service => <Service key={service._id} service={service}></Service>)
                     }
+                </div>
+                <div className='flex justify-end mt-4'>
+
+                    <Link to='/services'>
+                        <Button size="xs"><p className='mr-1'>See All </p> <FaAngleDoubleRight /></Button>
+                    </Link>
                 </div>
             </div>
 

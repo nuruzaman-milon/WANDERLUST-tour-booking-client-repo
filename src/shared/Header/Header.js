@@ -39,7 +39,12 @@ const Header = () => {
             })}>Blog</NavLink>
     </Navbar.Link>
     <Navbar.Link href="/navbars">
-      Services
+    <NavLink to='/services' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Services</NavLink>
     </Navbar.Link>
     <Navbar.Link href="/navbars">
       Pricing
