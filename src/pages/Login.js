@@ -1,13 +1,51 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import { Button, Label, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
+    const googleProvider = new GoogleAuthProvider();
+    const { providerLogin, signIn } = useContext(AuthContext);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(name, email, photoURL, password);
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                // Navigate(from, {replace: true});
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // setError(errorMessage);
+            })
+    }
+    const hangleGoogleLogin = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // navigate("/");
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // setError(errorMessage);
+            });
+    }
+
     return (
         <div className="my-6 flex flex-col justify-center rounded-xl h-[100vh] bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80')] bg-no-repeat bg-cover">
             <h1 className='font-bold text-3xl text-center'>Login</h1>
-            <form className="flex flex-col gap-4 w-[60%] mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[60%] mx-auto">
                 <div>
                     <div className="mb-2 block">
                         <Label
@@ -18,6 +56,7 @@ const Login = () => {
                     <TextInput
                         id="email2"
                         type="email"
+                        name="email"
                         placeholder="name@gmail.com"
                         required={true}
                         shadow={true}
@@ -33,6 +72,7 @@ const Login = () => {
                     <TextInput
                         id="password2"
                         type="password"
+                        name="password"
                         placeholder="**********"
                         required={true}
                         shadow={true}
@@ -61,6 +101,7 @@ const Login = () => {
             <div className='w-[60%] mx-auto mt-4'>
                 <Button
                     outline={true}
+                    onClick={hangleGoogleLogin}
                     gradientDuoTone="purpleToBlue"
                 >
                     <p className='flex items-center'><FaGoogle className='text-red-500 mr-1 text-2xl' /> Sign in with Google</p>
