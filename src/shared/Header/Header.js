@@ -38,7 +38,7 @@ const Header = () => {
               borderRadius:isActive ? '20px' : '0px'
             })}>Blog</NavLink>
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
+    <Navbar.Link>
     <NavLink to='/services' style={({ isActive }) => ({
               color: isActive ? '#fff' : '#545e6f',
               background: isActive ? '#7600dc' : '#ffffff',
@@ -46,11 +46,45 @@ const Header = () => {
               borderRadius:isActive ? '20px' : '0px'
             })}>Services</NavLink>
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Pricing
+    <Navbar.Link>
+    <NavLink to='/login' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Login</NavLink>
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Contact
+    <Navbar.Link>
+    <NavLink to='/register' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Register</NavLink>
+    </Navbar.Link>
+    <Navbar.Link>
+    <NavLink to='/services' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>My reviews</NavLink>
+    </Navbar.Link>
+    <Navbar.Link>
+    <NavLink to='/services' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Add service</NavLink>
+    </Navbar.Link>
+    <Navbar.Link>
+    <NavLink to='/services' style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#545e6f',
+              background: isActive ? '#7600dc' : '#ffffff',
+              padding:isActive ? '8px 20px' : '0px',
+              borderRadius:isActive ? '20px' : '0px'
+            })}>Logout</NavLink>
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>
