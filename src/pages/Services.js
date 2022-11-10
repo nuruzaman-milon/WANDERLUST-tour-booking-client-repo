@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ServiceCart from '../shared/ServiceCart/ServiceCart';
 
 const Services = () => {
     const allServices = useLoaderData();
+
+    //dynamic title
+    const changeTitle = "services-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
+
     return (
         <div>
             <h1 className='text-center font-bold text-3xl my-4'>All Services</h1>

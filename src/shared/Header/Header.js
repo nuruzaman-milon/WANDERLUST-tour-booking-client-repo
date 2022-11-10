@@ -19,7 +19,7 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <div className='py-2'>
       <Navbar
         fluid={true}
         rounded={true}
@@ -87,7 +87,7 @@ const Header = () => {
             :
             <>
               <Navbar.Link>
-                <NavLink to='/services' style={({ isActive }) => ({
+                <NavLink to='/myReviews' style={({ isActive }) => ({
                   color: isActive ? '#fff' : '#545e6f',
                   background: isActive ? '#7600dc' : '#ffffff',
                   padding: isActive ? '8px 20px' : '0px',
@@ -95,7 +95,7 @@ const Header = () => {
                 })}>My reviews</NavLink>
               </Navbar.Link>
               <Navbar.Link>
-                <NavLink to='/services' style={({ isActive }) => ({
+                <NavLink to='/add-service' style={({ isActive }) => ({
                   color: isActive ? '#fff' : '#545e6f',
                   background: isActive ? '#7600dc' : '#ffffff',
                   padding: isActive ? '8px 20px' : '0px',
@@ -103,12 +103,8 @@ const Header = () => {
                 })}>Add service</NavLink>
               </Navbar.Link>
               <Navbar.Link onClick={handleLogout}>
-                <NavLink to='/services' style={({ isActive }) => ({
-                  color: isActive ? '#fff' : '#545e6f',
-                  background: isActive ? '#7600dc' : '#ffffff',
-                  padding: isActive ? '8px 20px' : '0px',
-                  borderRadius: isActive ? '20px' : '0px'
-                })}>Logout</NavLink>
+                {/* <Button size="xs" outline={true} pill={true} gradientDuoTone="purpleToBlue">logout</Button> */}
+                <span className='bg-slate-400 px-2 py-2 rounded-3xl cursor-pointer hover:text-white'>logout</span>
               </Navbar.Link>
               <Navbar.Link className="ml-2">
                 <Tooltip content={user?.displayName}

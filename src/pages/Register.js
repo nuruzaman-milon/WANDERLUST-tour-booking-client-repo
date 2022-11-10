@@ -1,11 +1,18 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import { Button, Label, TextInput } from 'flowbite-react';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Register = () => {
+
+    //dynamic title
+    const changeTitle = "register-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
+
     const { createUser, providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();

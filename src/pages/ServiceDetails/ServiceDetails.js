@@ -4,6 +4,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const ServiceDetails = () => {
+    
+    //dynamic title
+        const changeTitle = "service-details";
+        useEffect(() => {
+          document.title = changeTitle;
+        }, [changeTitle]);
+
+
     const [allReviews, setAllReviews] = useState([])
     const { _id, title, ratings, price, img, details } = useLoaderData();
     const { user } = useContext(AuthContext);
@@ -59,9 +67,9 @@ const ServiceDetails = () => {
             <p><strong>Description:</strong> {details}</p>
 
             <div>
-                {/* review{allReviews.length} */}
+                <h1 className='text-3xl font-bold text-center mt-6'>Service Review </h1>
                 {
-                    allReviews.map(review => <Card className='my-4 bg-indigo-400'>
+                    allReviews.map(review => <Card className='my-4 bg-indigo-300'>
                         <div className='flex items-center'>
                             <img className='w-10 rounded-full mr-2' src={review.user_img} alt="" />
                             <p>{review.user_email}</p>
@@ -84,6 +92,8 @@ const ServiceDetails = () => {
                         ?
                         <p className='text-center'>Please <Link className='text-indigo-800 text-lg font-bold hover:underline underline-offset-2' to='/login'>login</Link> to add a review</p>
                         :
+                        <>
+                        <h1 className='text-3xl font-bold text-center mt-6'>Drop a Review</h1>
                         <form onSubmit={handleReview} className="flex flex-col gap-4">
                             <div>
                                 <div className="mb-2 block">
@@ -119,6 +129,7 @@ const ServiceDetails = () => {
                                 Submit
                             </Button>
                         </form>
+                        </>
                 }
 
             </div>

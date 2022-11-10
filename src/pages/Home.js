@@ -1,12 +1,17 @@
 import { Button, Carousel } from 'flowbite-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Service from './Service';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 
 const Home = () => {
+    //dynamic title
+    const changeTitle = "Home-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
+
     const servicesData = useLoaderData();
-    // console.log(servicesData.length);
     return (
         <div>
             <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">

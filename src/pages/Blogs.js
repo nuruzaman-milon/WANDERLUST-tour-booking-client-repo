@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Blogs = () => {
+    //dynamic title
+    const changeTitle = "blogs-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
     return (
         <div>
             <h1 className='text-center font-bold text-3xl my-4'>All Blogs</h1>
