@@ -10,7 +10,7 @@ const Header = () => {
   }
 
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogout = () => {
     logout()

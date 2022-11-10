@@ -1,7 +1,7 @@
 import { Button, Card } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
-import { confirmAlert } from 'react-confirm-alert';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Reviews = () => {
@@ -58,8 +58,10 @@ const Reviews = () => {
                                 </p>
                             </div>
                             <div className='flex'>
+                                <Link to={data?._id}>
                                 <Button className='mr-2' color="warning"
                                     pill={true}>Edit</Button>
+                                </Link>
                                 <Button onClick={()=>handleDelete(data?._id)} color="failure"
                                     pill={true}>Delete</Button>
                             </div>
