@@ -1,4 +1,4 @@
-import { Button, Label, Textarea } from 'flowbite-react';
+import { Button, Textarea } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 

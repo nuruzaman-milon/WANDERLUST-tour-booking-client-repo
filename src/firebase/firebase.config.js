@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyACAml28UmMtzTF-qZe9hayt-lAw2tjmRo",
-  authDomain: "wanderlust-auth.firebaseapp.com",
-  projectId: "wanderlust-auth",
-  storageBucket: "wanderlust-auth.appspot.com",
-  messagingSenderId: "65327253991",
-  appId: "1:65327253991:web:94a50498158ea773ac5542"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
