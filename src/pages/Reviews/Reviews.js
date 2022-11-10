@@ -1,13 +1,33 @@
 import { Button, Card } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Reviews = () => {
     const { user } = useContext(AuthContext)
     const [review, setReview] = useState([])
-    // const {service_title, review_name, review_text} = review;
-    // console.log(service_title);
-    // console.log(review[0]._id);
+
+    
+
+    const handleDelete = id =>{
+        const proceed = window.confirm('Are you want to delete?')
+        console.log(id);
+        if (proceed) {
+            fetch(`http://localhost:5000/myReviews/${id}`,{
+                method:'DELETE',
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if (data.deletedCount === 1) {
+                    toast.success('Successfully deleted!')
+                    const remaining = review.filter(odr => odr._id !== id);
+                    setReview(remaining);
+                  }
+            })
+        }
+    }
 
     //fetch user specific review data
     useEffect(() => {
@@ -40,7 +60,7 @@ const Reviews = () => {
                             <div className='flex'>
                                 <Button className='mr-2' color="warning"
                                     pill={true}>Edit</Button>
-                                <Button color="failure"
+                                <Button onClick={()=>handleDelete(data?._id)} color="failure"
                                     pill={true}>Delete</Button>
                             </div>
                         </div>
@@ -54,7 +74,7 @@ const Reviews = () => {
             
                 
             }
-
+<Toaster />
         </div>
     );
 };

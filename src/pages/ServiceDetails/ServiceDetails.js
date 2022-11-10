@@ -1,5 +1,6 @@
 import { Button, Card, Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useContext, useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -43,7 +44,7 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Order placed successfully')
+                    toast.success('Successfully added!')
                     form.reset();
                 }
             })
@@ -133,6 +134,7 @@ const ServiceDetails = () => {
                 }
 
             </div>
+            <Toaster />
         </div>
     );
 };
