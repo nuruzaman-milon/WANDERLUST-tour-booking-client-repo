@@ -2,15 +2,19 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { Button, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useEffect } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
     //dynamic title
     const changeTitle = "login-wanderlust";
     useEffect(() => {
-      document.title = changeTitle;
+        document.title = changeTitle;
     }, [changeTitle]);
 
     const googleProvider = new GoogleAuthProvider();
@@ -21,13 +25,31 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name, email, photoURL, password);
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
-                // Navigate(from, {replace: true});
+
+                //get jwt token
+                const currentUser = {
+                    email: user.email,
+                }
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('token', data.token);
+                        // form.reset();
+                        Navigate(from, { replace: true });
+                    })
+
+
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -39,8 +61,8 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                // navigate("/");
+                // console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorCode = error.code;

@@ -34,7 +34,11 @@ const Reviews = () => {
 
     //fetch user specific review data
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/myReviews?email=${user?.email}`,{
+            headers:{
+                authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
