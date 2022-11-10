@@ -8,7 +8,10 @@ const Reviews = () => {
     const { user } = useContext(AuthContext)
     const [review, setReview] = useState([])
 
-    
+    const changeTitle = "review-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
 
     const handleDelete = id =>{
         const proceed = window.confirm('Are you want to delete?')

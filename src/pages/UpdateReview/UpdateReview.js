@@ -1,9 +1,14 @@
 import { Button, Label, Textarea } from 'flowbite-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdateReview = () => {
+    const changeTitle = "Update-Review-wanderlust";
+    useEffect(() => {
+      document.title = changeTitle;
+    }, [changeTitle]);
+
     const reviewData = useLoaderData();
     const navigate = useNavigate();
     const [userReview, setUserReview] = useState(reviewData);

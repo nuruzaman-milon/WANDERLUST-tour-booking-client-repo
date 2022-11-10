@@ -95,7 +95,7 @@ const Header = () => {
                 })}>My reviews</NavLink>
               </Navbar.Link>
               <Navbar.Link>
-                <NavLink to='/add-service' style={({ isActive }) => ({
+                <NavLink to='/addService' style={({ isActive }) => ({
                   color: isActive ? '#fff' : '#545e6f',
                   background: isActive ? '#7600dc' : '#ffffff',
                   padding: isActive ? '8px 20px' : '0px',
