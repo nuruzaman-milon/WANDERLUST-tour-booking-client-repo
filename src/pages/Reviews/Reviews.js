@@ -17,7 +17,7 @@ const Reviews = () => {
         const proceed = window.confirm('Are you want to delete?')
         console.log(id);
         if (proceed) {
-            fetch(`http://localhost:5000/myReviews/${id}`,{
+            fetch(`https://wanderlust-server.vercel.app/myReviews/${id}`,{
                 method:'DELETE',
             })
             .then(res=>res.json())
@@ -34,7 +34,7 @@ const Reviews = () => {
 
     //fetch user specific review data
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`,{
+        fetch(`https://wanderlust-server.vercel.app/myReviews?email=${user?.email}`,{
             headers:{
                 authorization:`Bearer ${localStorage.getItem('token')}`
             }

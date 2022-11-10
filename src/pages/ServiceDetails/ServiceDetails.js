@@ -16,6 +16,8 @@ const ServiceDetails = () => {
     const [allReviews, setAllReviews] = useState([])
     const { _id, title, ratings, price, img, details } = useLoaderData();
     const { user } = useContext(AuthContext);
+    const date = new Date();
+    // console.log(date);
 
     const handleReview = e => {
         e.preventDefault();
@@ -29,10 +31,11 @@ const ServiceDetails = () => {
             review_name: name,
             review_text: review,
             user_email: user.email,
-            user_img: user.photoURL
+            user_img: user.photoURL,
+            date:date
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://wanderlust-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -52,7 +55,7 @@ const ServiceDetails = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?service_id=${_id}`)
+        fetch(`https://wanderlust-server.vercel.app/reviews?service_id=${_id}`)
             .then(res => res.json())
             .then(data => setAllReviews(data));
     }, [_id])

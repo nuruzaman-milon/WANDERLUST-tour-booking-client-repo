@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/services')
+                loader:()=>fetch('https://wanderlust-server.vercel.app/services')
             },
             {
                 path:'/blog',
@@ -28,12 +28,12 @@ export const router = createBrowserRouter([
             {
                 path:'/services',
                 element:<Services></Services>,
-                loader:()=>fetch('http://localhost:5000/allServices')
+                loader:()=>fetch('https://wanderlust-server.vercel.app/allServices')
             },
             {
                 path:'/services/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://wanderlust-server.vercel.app/services/${params.id}`)
             },
             {
                 path:'/login',
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
             {
                 path:'/myReviews/:id',
                 element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader:({params}) => fetch(`https://wanderlust-server.vercel.app/reviews/${params.id}`)
             },
             {
                 path:'/addService',

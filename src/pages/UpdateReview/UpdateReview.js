@@ -16,7 +16,7 @@ const UpdateReview = () => {
     const handleUpdateReview = event => {
         event.preventDefault();
         console.log(userReview);
-        fetch(`http://localhost:5000/reviews/${reviewData._id}`, {
+        fetch(`https://wanderlust-server.vercel.app/reviews/${reviewData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
