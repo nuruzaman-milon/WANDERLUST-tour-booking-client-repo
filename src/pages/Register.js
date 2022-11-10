@@ -58,7 +58,7 @@ const Register = () => {
     return (
         <div className="my-6 flex flex-col justify-center rounded-xl h-[100vh] bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80')] bg-no-repeat bg-cover">
             <h1 className='font-bold text-3xl text-center'>Register</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[60%] mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[90%] lg:w-[60%] mx-auto">
                 <div>
                     <div className="mb-2 block">
                         <Label

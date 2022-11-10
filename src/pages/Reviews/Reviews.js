@@ -50,7 +50,7 @@ const Reviews = () => {
                     <>
                     {
                         review.map(data => <Card className='my-4 bg-indigo-300'>
-                        <div className='flex justify-between items-center'>
+                        <div className='lg:flex justify-between items-center'>
                             <div>
                                 <h5 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
                                     Service Title: {data?.service_title}

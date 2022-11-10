@@ -33,7 +33,7 @@ const Home = () => {
 
             <div className='my-6'>
                 <h1 className='mb-6 text-center font-bold text-3xl'>Top Services</h1>
-                <div className='grid grid-cols-3 gap-6'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
                     {
                         servicesData.map(service => <Service key={service._id} service={service}></Service>)
                     }
@@ -48,7 +48,7 @@ const Home = () => {
 
             <div className='mt-10'>
                 <h1 className='text-center font-bold text-4xl mb-8'>Top Destination</h1>
-                <div className='grid grid-cols-3 gap-8'>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                     <div className="overflow-hidden aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
                         <div className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
                             <div>
@@ -95,7 +95,7 @@ const Home = () => {
                     </h1>
                     <h2 className='text-2xl'>I am available 24/7 to answer your queries.</h2>
                 </div>
-                <div className='grid grid-cols-2 gap-16'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-16'>
                     <div className='rounded-xl bg-[#10A5B2] text-white text-center py-12 hover:bg-[#028b97]'>
                         <div className='bg-white mx-auto rounded-full w-20 h-20'>
                             <img className='mx-auto pt-3' src="https://d33wubrfki0l68.cloudfront.net/a3a2ee57a92e0b0322f02b7f0dbda7a625479d57/5deeb/assets/svg/headset.svg" alt="" />
