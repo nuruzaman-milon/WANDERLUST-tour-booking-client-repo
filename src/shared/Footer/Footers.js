@@ -7,7 +7,7 @@ const Footers = () => {
             <Footer  container={true}>
                 <div className='w-full flex justify-center'>
                     <Footer.Copyright 
-                        by="Wanderlust™"
+                        by="Wanderlust™ - the tour guide"
                         year={2022}
                     />
                 </div>
